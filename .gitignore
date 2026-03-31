@@ -1,0 +1,11 @@
+# macOS
+.DS_Store
+
+# Angular app dependencies and generated output
+neetcode_redesign/node_modules/
+neetcode_redesign/dist/
+neetcode_redesign/.angular/
+
+# Test and build artifacts
+neetcode_redesign/coverage/
+neetcode_redesign/.sass-cache/
