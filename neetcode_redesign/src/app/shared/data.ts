@@ -27,6 +27,11 @@ export interface ProblemPreview {
   acceptance: number;
 }
 
+export interface InterviewQuestionPreview {
+  title: string;
+  difficulty: 'Easy' | 'Medium' | 'Hard';
+}
+
 export const TESTIMONIALS: Testimonial[] = [
   {
     quote: "NeetCode's roadmap completely changed how I approach interview prep. Went from random grinding to structured learning.",
@@ -137,6 +142,20 @@ export const PROBLEM_PREVIEWS: ProblemPreview[] = [
   { id: 4, title: 'Container With Most Water', difficulty: 'Medium', category: 'Two Pointers', acceptance: 59 },
   { id: 5, title: 'Merge K Sorted Lists', difficulty: 'Hard', category: 'Linked List', acceptance: 41 },
   { id: 6, title: 'Binary Tree Maximum Path Sum', difficulty: 'Hard', category: 'Trees', acceptance: 38 },
+];
+
+export const INTERVIEW_QUESTION_PREVIEWS: InterviewQuestionPreview[] = [
+  { title: 'Design LeetCode', difficulty: 'Easy' },
+  { title: 'Design URL Shortener', difficulty: 'Easy' },
+  { title: 'Design Webhook', difficulty: 'Easy' },
+  { title: 'Design Google Docs', difficulty: 'Medium' },
+  { title: 'Design Spotify Top K Songs', difficulty: 'Hard' },
+  { title: 'Design Yelp', difficulty: 'Easy' },
+  { title: 'Design Rate Limiter', difficulty: 'Easy' },
+  { title: 'Design Pastebin', difficulty: 'Easy' },
+  { title: 'Design Realtime Monitoring System', difficulty: 'Easy' },
+  { title: 'Design Typeahead System', difficulty: 'Easy' },
+  { title: 'Design a Comment System', difficulty: 'Medium' },
 ];
 
 export const COMPANIES = ['Google', 'Meta', 'Amazon', 'Apple', 'Microsoft', 'Netflix'];

@@ -1,6 +1,7 @@
 import { CommonModule } from '@angular/common';
 import { Component, Input } from '@angular/core';
 import { AnimateOnScrollDirective } from '../../shared/animate-on-scroll.directive';
+import { InterviewQuestionPreview } from '../../shared/data';
 
 @Component({
   selector: 'app-neetcode-hero',
@@ -33,7 +34,23 @@ import { AnimateOnScrollDirective } from '../../shared/animate-on-scroll.directi
                 <div class="flex items-center gap-2 px-2 py-1.5 cursor-pointer" [ngClass]="dark ? 'text-[#a1a1aa]' : 'text-[#52525b]'"><span class="text-xs">🔧</span><span class="text-[11px] font-semibold">Low Level Design</span></div>
                 <div class="flex items-center gap-2 px-2 py-1.5 cursor-pointer" [ngClass]="dark ? 'text-[#a1a1aa]' : 'text-[#52525b]'"><span class="text-xs">🗄️</span><span class="text-[11px] font-semibold">Databases</span></div>
               </div>
-              <div class="flex-1 min-w-0"><div class="flex items-center justify-between mb-5"><h3 class="text-sm font-semibold" [ngClass]="dark ? 'text-[#e4e4e7]' : 'text-[#09090b]'">DSA Roadmap</h3><span class="text-xs px-2.5 py-0.5 rounded-full font-medium" [ngClass]="dark ? 'bg-neet-easy/10 text-neet-easy' : 'bg-green-50 text-green-600'">12 / 30 complete</span></div><div class="space-y-0.5"><div *ngFor="let topic of roadmapTopics.slice(0, 8)" class="flex items-center gap-3 px-3 py-2.5 rounded-lg transition-all duration-200 cursor-pointer group" [ngClass]="dark ? 'hover:bg-white/[0.02]' : 'hover:bg-black/[0.02]'"><div class="w-1.5 h-1.5 rounded-full shrink-0" [ngClass]="topic.progress >= 100 ? 'bg-neet-easy shadow-[0_0_6px_rgba(74,222,128,0.5)]' : topic.progress > 50 ? (dark ? 'bg-[#818cf8]' : 'bg-[#4f46e5]') : topic.progress > 0 ? (dark ? 'bg-[#6366f1]/60' : 'bg-[#4f46e5]/50') : (dark ? 'bg-[#27272a]' : 'bg-[#d4d4d8]')"></div><span class="text-sm flex-1 truncate" [ngClass]="dark ? 'text-[#a1a1aa] group-hover:text-[#e4e4e7]' : 'text-[#52525b] group-hover:text-[#09090b]'">{{ topic.name }}</span><div class="w-20 h-1 rounded-full overflow-hidden shrink-0" [ngClass]="dark ? 'bg-white/[0.04]' : 'bg-black/[0.04]'"><div class="h-full rounded-full transition-all duration-700" [style.width.%]="topic.progress" [style.background]="'linear-gradient(90deg, #6366f1, #a78bfa)'"></div></div><span class="text-xs tabular-nums w-8 text-right shrink-0" [ngClass]="dark ? 'text-[#3f3f46]' : 'text-[#a1a1aa]'">{{ getCompletedCount(topic) }}/{{ topic.count }}</span></div></div></div>
+              <div class="flex-1 min-w-0">
+                <div class="mb-4">
+                  <h3 class="text-sm font-semibold" [ngClass]="dark ? 'text-[#e4e4e7]' : 'text-[#09090b]'">Interview Questions</h3>
+                </div>
+                <div class="overflow-hidden rounded-xl border" [ngClass]="dark ? 'border-white/[0.04] bg-white/[0.02]' : 'border-black/[0.06] bg-black/[0.01]'">
+                  <div class="grid items-center px-4 py-3 text-[11px] font-semibold uppercase tracking-wider border-b" style="grid-template-columns: minmax(0, 1fr) 96px" [ngClass]="dark ? 'text-[#a1a1aa] border-white/[0.04]' : 'text-[#52525b] border-black/[0.06]'">
+                    <span>Problem</span>
+                    <span class="text-right">Difficulty</span>
+                  </div>
+                  <div class="divide-y" [ngClass]="dark ? 'divide-white/[0.04]' : 'divide-black/[0.06]'">
+                    <div *ngFor="let question of interviewQuestions" class="grid items-center gap-3 px-4 py-3 text-sm" style="grid-template-columns: minmax(0, 1fr) 96px">
+                      <span class="truncate" [ngClass]="dark ? 'text-[#e4e4e7]' : 'text-[#09090b]'">{{ question.title }}</span>
+                      <span class="text-right font-semibold" [ngClass]="question.difficulty === 'Easy' ? 'text-neet-easy' : question.difficulty === 'Medium' ? 'text-neet-medium' : 'text-neet-hard'">{{ question.difficulty }}</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
             </div></div>
           </div>
         </div>
@@ -43,9 +60,5 @@ import { AnimateOnScrollDirective } from '../../shared/animate-on-scroll.directi
 })
 export class NeetcodeHeroComponent {
   @Input() dark = true;
-  @Input() roadmapTopics: Array<{ name: string; count: number; progress: number }> = [];
-
-  getCompletedCount(topic: { count: number; progress: number }): number {
-    return Math.round((topic.progress / 100) * topic.count);
-  }
+  @Input() interviewQuestions: InterviewQuestionPreview[] = [];
 }

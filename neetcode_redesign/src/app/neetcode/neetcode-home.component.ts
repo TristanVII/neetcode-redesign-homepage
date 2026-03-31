@@ -1,6 +1,7 @@
 import { Component, HostListener, Inject, OnInit, PLATFORM_ID } from '@angular/core';
 import { isPlatformBrowser } from '@angular/common';
 import {
+  INTERVIEW_QUESTION_PREVIEWS,
   PROBLEM_PREVIEWS,
   ROADMAP_TOPICS,
   STATS,
@@ -51,7 +52,7 @@ import { NeetcodeFooterComponent } from './components/neetcode-footer.component'
       (toggleThemeRequested)="toggleTheme()"
     />
 
-    <app-neetcode-hero [dark]="dark" [roadmapTopics]="roadmapTopics" />
+    <app-neetcode-hero [dark]="dark" [interviewQuestions]="interviewQuestions" />
     <app-neetcode-trusted-by [dark]="dark" [logos]="companyLogos" />
     <app-neetcode-features [dark]="dark" />
     <app-neetcode-courses [dark]="dark" [courses]="courses" />
@@ -74,6 +75,7 @@ export class NeetcodeHomeComponent implements OnInit {
   readonly testimonials = TESTIMONIALS;
   readonly stats = STATS;
   readonly problemPreviews = PROBLEM_PREVIEWS;
+  readonly interviewQuestions = INTERVIEW_QUESTION_PREVIEWS;
   readonly roadmapTopics = ROADMAP_TOPICS;
 
   readonly navLinks = NAV_LINKS;
