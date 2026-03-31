@@ -8,7 +8,7 @@ import { Testimonial } from '../../shared/data';
   standalone: true,
   imports: [CommonModule, AnimateOnScrollDirective],
   template: `
-    <section class="relative py-24 md:py-32 overflow-hidden transition-colors duration-500" [ngClass]="dark ? 'bg-[#0a0a0c]' : 'bg-[#fafafa]'">
+    <section id="loved-by-engineers" class="relative py-24 md:py-32 overflow-hidden transition-colors duration-500 scroll-mt-24" [ngClass]="dark ? 'bg-[#0a0a0c]' : 'bg-[#fafafa]'">
       <div class="relative z-10 max-w-6xl mx-auto px-6 md:px-8">
         <h2 appAnimateOnScroll class="text-3xl md:text-4xl font-bold text-center tracking-tight opacity-0 [&.is-visible]:animate-fade-up" [ngClass]="dark ? 'text-[#e4e4e7]' : 'text-[#09090b]'">Loved by <span class="hero-gradient-text">engineers</span></h2>
         <p appAnimateOnScroll [animationDelay]="80" class="text-center text-base mt-4 mb-14 opacity-0 [&.is-visible]:animate-fade-up" [ngClass]="dark ? 'text-[#52525b]' : 'text-[#71717a]'">See what our community has to say.</p>

@@ -8,7 +8,7 @@ import { CompanyLogo } from '../neetcode.content';
   standalone: true,
   imports: [CommonModule, AnimateOnScrollDirective],
   template: `
-    <section id="loved-by-engineers" class="relative py-14 transition-colors duration-500 scroll-mt-24" [ngClass]="dark ? 'bg-[#08090a]' : 'bg-white'">
+    <section class="relative py-14 transition-colors duration-500" [ngClass]="dark ? 'bg-[#08090a]' : 'bg-white'">
       <div class="max-w-5xl mx-auto px-6 md:px-8">
         <div class="border-t border-b py-10 transition-colors duration-300" [ngClass]="dark ? 'border-white/[0.04]' : 'border-black/[0.04]'">
           <p appAnimateOnScroll class="text-center text-xs uppercase tracking-[0.2em] mb-8 opacity-0 [&.is-visible]:animate-fade-in" [ngClass]="dark ? 'text-[#3f3f46]' : 'text-[#a1a1aa]'">Loved by engineers at</p>
