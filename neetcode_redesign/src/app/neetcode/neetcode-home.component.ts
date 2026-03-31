@@ -2,7 +2,6 @@ import { Component, HostListener, Inject, OnInit, PLATFORM_ID } from '@angular/c
 import { isPlatformBrowser } from '@angular/common';
 import {
   INTERVIEW_QUESTION_PREVIEWS,
-  PROBLEM_PREVIEWS,
   ROADMAP_TOPICS,
   STATS,
   TESTIMONIALS,
@@ -22,7 +21,6 @@ import { NeetcodeTrustedByComponent } from './components/neetcode-trusted-by.com
 import { NeetcodeFeaturesComponent } from './components/neetcode-features.component';
 import { NeetcodeCoursesComponent } from './components/neetcode-courses.component';
 import { NeetcodeRoadmapComponent } from './components/neetcode-roadmap.component';
-import { NeetcodePracticeComponent } from './components/neetcode-practice.component';
 import { NeetcodeTestimonialsComponent } from './components/neetcode-testimonials.component';
 import { NeetcodeStatsComponent } from './components/neetcode-stats.component';
 import { NeetcodeCtaComponent } from './components/neetcode-cta.component';
@@ -38,7 +36,6 @@ import { NeetcodeFooterComponent } from './components/neetcode-footer.component'
     NeetcodeFeaturesComponent,
     NeetcodeCoursesComponent,
     NeetcodeRoadmapComponent,
-    NeetcodePracticeComponent,
     NeetcodeTestimonialsComponent,
     NeetcodeStatsComponent,
     NeetcodeCtaComponent,
@@ -64,7 +61,6 @@ import { NeetcodeFooterComponent } from './components/neetcode-footer.component'
       [graphNodes]="graphNodes"
       [graphLinks]="graphLinks"
     />
-    <app-neetcode-practice [dark]="dark" [problemPreviews]="problemPreviews" />
     <app-neetcode-testimonials [dark]="dark" [testimonials]="testimonials" />
     <app-neetcode-stats [dark]="dark" [stats]="stats" />
     <app-neetcode-cta [dark]="dark" />
@@ -74,7 +70,6 @@ import { NeetcodeFooterComponent } from './components/neetcode-footer.component'
 export class NeetcodeHomeComponent implements OnInit {
   readonly testimonials = TESTIMONIALS;
   readonly stats = STATS;
-  readonly problemPreviews = PROBLEM_PREVIEWS;
   readonly interviewQuestions = INTERVIEW_QUESTION_PREVIEWS;
   readonly roadmapTopics = ROADMAP_TOPICS;
 
